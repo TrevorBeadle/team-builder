@@ -43,7 +43,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <Form values={values} update={updateForm} submit={submitForm} />
       {teamList.map(member => {
         return <Teammember key={member.id} details={member} />;
