@@ -23,6 +23,7 @@ export default function Form(props) {
           placeholder="Name"
           value={values.name}
           onChange={onChange}
+          maxLength="30"
         />
       </label>
       <label>
@@ -33,15 +34,16 @@ export default function Form(props) {
           placeholder="Email"
           value={values.email}
           onChange={onChange}
+          maxLength="30"
         />
       </label>
       <label>
         Role:
         <select name="role" value={values.role} onChange={onChange}>
           <option value="">-- Select your Role --</option>
-          <option value="frontend">Frontend Engineer</option>
-          <option value="backend">Backend Engineer</option>
-          <option value="designer">Designer</option>
+          <option value="Frontend">Frontend Engineer</option>
+          <option value="Backend">Backend Engineer</option>
+          <option value="Designer">Designer</option>
         </select>
       </label>
       <button disabled={!values.name || !values.email || !values.role}>
