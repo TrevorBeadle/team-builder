@@ -44,6 +44,9 @@ export default function Form(props) {
           <option value="designer">Designer</option>
         </select>
       </label>
+      <button disabled={!values.name || !values.email || !values.role}>
+        Submit
+      </button>
     </form>
   );
 }

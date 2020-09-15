@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Form from "./Form";
+import axios from "./axios/axios";
 
 function App() {
   const initialValues = {
@@ -23,9 +23,25 @@ function App() {
       email: values.email.trim(),
       role: values.role,
     };
+
+    if (!newTeammember.name || !newTeammember.email || !newTeammember.role) {
+      return;
+    }
+
+    axios
+      .post("fakeapi.com", newTeammember)
+      .then(res => {
+        setTeamList(res.data);
+        setValues(initialValues);
+      })
+      .catch(err => console.log(err));
   };
 
-  return <Form />;
+  useEffect(() => {
+    axios.get("fakeapi.com").then(res => setTeamList(res.data));
+  }, []);
+
+  return <Form values={values} update={updateForm} submit={submitForm} />;
 }
 
 export default App;
