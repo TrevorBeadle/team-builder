@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Form from "./Form";
+import Form from "./Components/Form";
 import axios from "./axios/axios";
+import Teammember from "./Components/Teammember";
 
 function App() {
   const initialValues = {
@@ -31,7 +32,7 @@ function App() {
     axios
       .post("fakeapi.com", newTeammember)
       .then(res => {
-        setTeamList(res.data);
+        setTeamList([res.data, ...teamList]);
         setValues(initialValues);
       })
       .catch(err => console.log(err));
@@ -41,7 +42,14 @@ function App() {
     axios.get("fakeapi.com").then(res => setTeamList(res.data));
   }, []);
 
-  return <Form values={values} update={updateForm} submit={submitForm} />;
+  return (
+    <div>
+      <Form values={values} update={updateForm} submit={submitForm} />
+      {teamList.map(member => {
+        return <Teammember key={member.id} details={member} />;
+      })}
+    </div>
+  );
 }
 
 export default App;
