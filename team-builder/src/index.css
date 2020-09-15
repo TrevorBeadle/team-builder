@@ -11,6 +11,20 @@ body {
   padding: 32px;
 }
 
+h1, h2, h3, h4 {
+  color: royalblue;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
@@ -22,4 +36,27 @@ code {
   padding: 32px;
   background-color: white;
   margin-bottom: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 20%;
+  margin: 0 auto;
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  min-width: 100%;
+}
+
+input, select, button {
+  height: 1.5rem;
+  width: 150px;
+  margin: 8px 8px 8px 0;
 }
