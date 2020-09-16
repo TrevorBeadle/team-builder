@@ -1,8 +1,6 @@
 import React from "react";
 
-export default function Teammember(props) {
-  const { details } = props;
-
+export default function Teammember({ details }) {
   return (
     <div className="container">
       <h2>{details.name}</h2>
